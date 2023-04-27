@@ -1,0 +1,11 @@
+/home/aldo/catkin_ws/build/trucky_arduino/firmware/CMakeFiles/rebuild_cache.dir
+/home/aldo/catkin_ws/build/trucky_arduino/firmware/CMakeFiles/actuators-upload.dir
+/home/aldo/catkin_ws/build/trucky_arduino/firmware/CMakeFiles/actuators-size.dir
+/home/aldo/catkin_ws/build/trucky_arduino/firmware/CMakeFiles/actuators.dir
+/home/aldo/catkin_ws/build/trucky_arduino/firmware/CMakeFiles/edit_cache.dir
+/home/aldo/catkin_ws/build/trucky_arduino/firmware/CMakeFiles/uno_Wire.dir
+/home/aldo/catkin_ws/build/trucky_arduino/firmware/CMakeFiles/sensors-upload.dir
+/home/aldo/catkin_ws/build/trucky_arduino/firmware/CMakeFiles/uno_CORE.dir
+/home/aldo/catkin_ws/build/trucky_arduino/firmware/CMakeFiles/sensors.dir
+/home/aldo/catkin_ws/build/trucky_arduino/firmware/CMakeFiles/sensors-size.dir
+/home/aldo/catkin_ws/build/trucky_arduino/firmware/CMakeFiles/upload.dir

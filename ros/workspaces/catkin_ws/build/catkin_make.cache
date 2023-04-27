@@ -1,0 +1,2 @@
+custom_msgs:trucky_arduino
+-DCATKIN_DEVEL_PREFIX=/home/aldo/catkin_ws/devel -DCMAKE_INSTALL_PREFIX=/home/aldo/catkin_ws/install -G Unix Makefiles

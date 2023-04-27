@@ -1,0 +1,4 @@
+<?xml version="1.0"?>
+<launch>   
+    <node name="calibrate_actuators" pkg="trucky_arduino" type="calibrate_actuators.py" output="screen" required="true"/>
+</launch>

@@ -1,0 +1,1 @@
+/usr/bin/avr-g++  -g -Os       -mcall-prologues -ffunction-sections -fdata-sections -fno-exceptions  -Wl,--gc-sections -lm -mmcu=atmega328p  CMakeFiles/actuators.dir/arduino_actuators.cpp.obj CMakeFiles/actuators.dir/home/aldo/catkin_ws/build/trucky_arduino/ros_lib/time.cpp.obj  -o /home/aldo/catkin_ws/devel/share/trucky_arduino/actuators.elf libuno_Wire.a libuno_CORE.a -lc -lm 

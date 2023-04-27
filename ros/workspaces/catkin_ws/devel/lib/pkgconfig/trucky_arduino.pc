@@ -1,0 +1,8 @@
+prefix=/home/aldo/catkin_ws/devel
+
+Name: trucky_arduino
+Description: Description of trucky_arduino
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: ackermann_msgs rosserial_arduino rosserial_client sensor_msgs std_msgs custom_msgs
