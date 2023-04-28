@@ -170,6 +170,41 @@ ISR(PCINT2_vect) {
   }
 }
 
+/*
+  Pin Change Interrupt function used to obtain PWM High Time values in microseconds
+*/
+ISR(PCINT0_vect) {
+  unsigned int current_time_us = micros();
+  if((PINB & B00001000) >> 3 != servo_pwm_state)
+  {
+    if((PINB & B00001000) >> 3 == HIGH)
+    {
+      servo_pwm_high_state_init_time_us = current_time_us;
+    }
+    else
+    {
+      unsigned int new_servo_pwm_high_time = current_time_us - servo_pwm_high_state_init_time_us;
+      servo_pwm_high_time = new_servo_pwm_high_time > 2000 ? servo_pwm_high_time : new_servo_pwm_high_time;
+      servo_pwm_high_state_init_time_us = 0;
+    }
+    servo_pwm_state = !servo_pwm_state;
+  }
+  if((PINB & B00010000) >> 4 != motor_pwm_state)
+  {
+    if((PINB & B00010000) >> 4 == HIGH)
+    {
+      motor_pwm_high_state_init_time_us = current_time_us;  
+    }
+    else
+    {
+      unsigned int new_motor_pwm_high_time = current_time_us - motor_pwm_high_state_init_time_us;
+      motor_pwm_high_time = new_motor_pwm_high_time > 2000 ? motor_pwm_high_time : new_motor_pwm_high_time;
+      motor_pwm_high_state_init_time_us = 0;
+    }
+    motor_pwm_state = !motor_pwm_state;
+  }
+}
+
 /* 
   Sends I2C Messages to the Arduino Actuators board to communicate the current robot speed.
 */
