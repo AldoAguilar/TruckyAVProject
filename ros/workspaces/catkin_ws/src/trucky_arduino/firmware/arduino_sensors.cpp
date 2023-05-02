@@ -35,6 +35,7 @@ namespace ros
 
 #define DEBUG_PIN          A6
 #define INTERRUPT_PIN      2
+#define INTERRUPT_INT      0
 #define MOTOR_PIN          11
 #define SERVO_PIN          12
 #define LEFT_ENCODER_PIN   4
@@ -267,9 +268,9 @@ ISR(PCINT2_vect) {
 */
 ISR(PCINT0_vect) {
   unsigned int current_time_us = micros();
-  if((PINB & B00001000) >> 3 != servo_pwm_state)
+  if((PINB & B00010000) >> 4 != servo_pwm_state)
   {
-    if((PINB & B00001000) >> 3 == HIGH)
+    if((PINB & B00010000) >> 4 == HIGH)
     {
       servo_pwm_high_state_init_time_us = current_time_us;
     }
@@ -282,9 +283,9 @@ ISR(PCINT0_vect) {
     servo_pwm_state = !servo_pwm_state;
   }
   #if PWM_CONTROL == true
-    if((PINB & B00010000) >> 4 != motor_pwm_state)
+    if((PINB & B00001000) >> 3 != motor_pwm_state)
     {
-      if((PINB & B00010000) >> 4 == HIGH)
+      if((PINB & B00001000) >> 3 == HIGH)
       {
         motor_pwm_high_state_init_time_us = current_time_us;  
       }
@@ -324,17 +325,18 @@ void setup()
   pinMode(SERVO_PIN, INPUT);
   pinMode(MOTOR_PIN, INPUT);
   pinMode(INTERRUPT_PIN, INPUT);
+  pinMode(LED_BUILTIN, OUTPUT);
 
-  // if (digitalRead(DEBUG_PIN) == LOW)
-  // {
-  //   bool LED_VAL = HIGH;
-  //   while (true)
-  //   {
-  //     digitalWrite(LED_BUILTIN, LED_VAL);
-  //     LED_VAL = !LED_VAL;
-  //     delay(500);
-  //   }
-  // }
+  if (digitalRead(DEBUG_PIN) == LOW)
+  {
+    bool LED_VAL = HIGH;
+    while (true)
+    {
+      digitalWrite(LED_BUILTIN, LED_VAL);
+      LED_VAL = !LED_VAL;
+      delay(500);
+    }
+  }
 
   nh.getHardware()->setBaud(115200);
   nh.initNode();   
@@ -361,7 +363,7 @@ void setup()
 
   #if PWM_CONTROL == true
     setOperatingMode();
-    attachInterrupt(INTERRUPT_PIN, setOperatingMode, CHANGE);
+    attachInterrupt(INTERRUPT_INT, setOperatingMode, CHANGE);
   #endif
 
   ros_time = millis();

@@ -10,6 +10,7 @@ Date:        April 2023
 
 #define DEBUG_PIN          A6
 #define INTERRUPT_PIN      2
+#define INTERRUPT_INT      0
 #define MOTOR_PIN          11
 #define SERVO_PIN          12
 #define LEFT_ENCODER_PIN   4
@@ -175,9 +176,9 @@ ISR(PCINT2_vect) {
 */
 ISR(PCINT0_vect) {
   unsigned int current_time_us = micros();
-  if((PINB & B00001000) >> 3 != servo_pwm_state)
+  if((PINB & B00010000) >> 4 != servo_pwm_state)
   {
-    if((PINB & B00001000) >> 3 == HIGH)
+    if((PINB & B00010000) >> 4 == HIGH)
     {
       servo_pwm_high_state_init_time_us = current_time_us;
     }
@@ -189,9 +190,9 @@ ISR(PCINT0_vect) {
     }
     servo_pwm_state = !servo_pwm_state;
   }
-  if((PINB & B00010000) >> 4 != motor_pwm_state)
+  if((PINB & B00001000) >> 3 != motor_pwm_state)
   {
-    if((PINB & B00010000) >> 4 == HIGH)
+    if((PINB & B00001000) >> 3 == HIGH)
     {
       motor_pwm_high_state_init_time_us = current_time_us;  
     }
@@ -236,7 +237,7 @@ void setup()
   initPinChangeInterrupt();
 
   setOperatingMode();
-  attachInterrupt(INTERRUPT_PIN, setOperatingMode, CHANGE);
+  attachInterrupt(INTERRUPT_INT, setOperatingMode, CHANGE);
 
   Serial.begin(9600);
 
