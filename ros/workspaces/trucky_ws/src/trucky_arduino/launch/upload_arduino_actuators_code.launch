@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+<launch>   
+    <param name="code_type" type="str" value="actuators"/>
+    <node name="upload_arduino_code" pkg="trucky_arduino" type="upload_arduino_code.py" required="true"/>
+</launch>

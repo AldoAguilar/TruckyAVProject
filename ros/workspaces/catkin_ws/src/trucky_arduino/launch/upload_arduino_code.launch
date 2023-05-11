@@ -1,4 +1,0 @@
-<?xml version="1.0"?>
-<launch>   
-    <node name="upload_arduino_code" pkg="trucky_arduino" type="upload_arduino_code.sh" required="true"/>
-</launch>

@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<launch>   
+    <rosparam command="load" file="$(find trucky_arduino)/config/config.yaml" />
+
+    <node pkg="rosserial_python" type="serial_node.py" name="arduino_1"/>
+
+    <node pkg="rosserial_python" type="serial_node.py" name="arduino_2" />
+
+    <node pkg="trucky_arduino" type="arduino_logger.py" name="arduino_logger" output="screen"/>
+</launch>
