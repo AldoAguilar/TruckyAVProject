@@ -48,7 +48,7 @@ Los paquetes contenidos en este workspace incluyen:
     1. La velocidad angular en las ruedas del robot  y el ángulo de dirección de las ruedas forntales .
     2. El estado actual de los actuadores en términos de las señales PWM suministrados en los mismos y la velocidad lineal actual del robot.
     
-Consulta más infomración a cerca de estos paquetes [aquí](workspaces/trucky_ws/src/trucky_ws). 
+Consulta más infomración a cerca de estos paquetes [aquí](workspaces/trucky_ws). 
 
 ## Instalación
 Estas indicaciones tienen como objetivo ayudar al usuario a replicar la configuración del proyecto en su estado acutal, así como proveer una descripción general del sistema implementado.
