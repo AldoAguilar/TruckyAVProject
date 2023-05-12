@@ -2,6 +2,9 @@
 
 Este directorio incluye los recursos necesarios para el control del robot "Trucky" con ROS, permitiendo el control de actuadores y lectura de sensores así como el intercambio de mensajes.
 
+| NOTA: Esta documentación sirve como una guía de configuración del proyecto para su funcionamiento con el hardware y software específicado, sin embargo se recomienda que todo nuevo desarrollador realice el esfuerzo de actualizar esta documentación con los nuevos requisitos de hardware y de software para así garantizar el soporte del proyecto a largo plazo. |
+| --- |
+
 ## Tabla de Contenidos
 
 * [Descripción de contenidos](#descripción-de-contenidos)
@@ -13,6 +16,7 @@ Este directorio incluye los recursos necesarios para el control del robot "Truck
   - [Configuración de software](#configuración-de-software)
 
 ## Descripción de contenidos
+
 ### trucky_custom_msgs
 Es un paquete con los mensajes personalizados usados en el robot. El usuario deberá instalar este paquete en su computadora para poder monitorear y enviar mensajes al robot de forma remota.
 Los mensajes definidos en este paquete incluyen:
@@ -47,14 +51,13 @@ Los paquetes contenidos en este workspace incluyen:
   + Cambiar el modo de monitoreo del robot, modificando el tipo de mensajes de monitoreo de estado del robot usando mensajes como:
     1. La velocidad angular en las ruedas del robot  y el ángulo de dirección de las ruedas forntales .
     2. El estado actual de los actuadores en términos de las señales PWM suministrados en los mismos y la velocidad lineal actual del robot.
-    
-Consulta más infomración a cerca de estos paquetes [aquí](workspaces/trucky_ws). 
+
+
+| Para mayor información a cerca de los paquetes de ROS implementados y cómo utilizarlos ve al apartado dedicado disponible [aquí](workspaces/trucky_ws).  |
+| --- |
 
 ## Instalación
 Estas indicaciones tienen como objetivo ayudar al usuario a replicar la configuración del proyecto en su estado acutal, así como proveer una descripción general del sistema implementado.
-
-| NOTA: Esta documentación sirve como una guía de configuración del proyecto para su funcionamiento con el hardware y software específicado, sin embargo se recomienda que todo nuevo desarrollador realice el esfuerzo de actualizar esta documentación con los nuevos requisitos de hardware y de software para así garantizar el soporte del proyecto a largo plazo. |
-| --- |
 
 ### Prerrequisitos de hardware
 Para poder realizar la configuración y uso de los recursos del proyecto en ROS, se deberá contar con el robot debidamente armado y en funcionamiento. (Revisar los [requisitos de hardware del sistema](..) para mayor referencia) Esto incluye:
@@ -71,7 +74,7 @@ Los prerrequisitos de software (Revisar los [requisitos de software del sistema]
 * ROS Melodic debidamente instalado en la computadora personal.
 
 ### Configuración de software 
-#### Tarjeta(s) de desarrollo
+#### **Tarjeta(s) de desarrollo**
 ##### Instalación de paquetes de ROS
 El robot basa la integración del Driver de motores "Trucky Driver Board" con ROS mediante la comunicación serial con las tarjetas Arduino Nano de la misma. Para esto se hace uso del paquete `rosserial`, permitiendo la administración de la comunicación y el uso de mensajes de ROS de forma nativa con Arduino.
 (Consulta la documentación de rosserial para mayor información [aquí](http://wiki.ros.org/rosserial/Tutorials)).
@@ -126,7 +129,7 @@ Agrega el archivo de configuración `setup.bash` a la sesión bash de la computa
 echo "source ~/trucky_ws/devel/setup.bash" >> ~/.bashrc
 source ~/.bashrc
 ```
-#### Computadora personal
+#### **Computadora personal**
 ##### Instalación de paquetes de ROS
 En una terminal, ejecuta el siguiente comando para instalar el paquete `ackermann_msgs`:
 ```
